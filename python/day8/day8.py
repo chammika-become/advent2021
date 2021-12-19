@@ -55,7 +55,8 @@ def solve(patterns: List[str], output: List[str]) -> List[int]:
     # print(f"e => {e}")
 
     mapping = {"a": a, "b": b, "c": c, "d": d, "e": e, "f": f, "g": g}
-    mapping = {next(iter(v)): k for k, v in mapping.items()}  # reverse k,v
+    # convert set to segment and reverse the mapping to use
+    mapping = {next(iter(v)): k for k, v in mapping.items()}
 
     nums = []
     for digit in output:
