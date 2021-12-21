@@ -1,20 +1,18 @@
-from collections import defaultdict
-from typing import Dict, List
 import re
 
 
 def fold(points, fold_y=None, fold_x=None):
     if fold_y:
         # reflecting on Y
-        new_points = set((x, y) for x, y in points if y < fold_y)
+        stationay = set((x, y) for x, y in points if y < fold_y)
         reflected = set((x, y - 2 * (y - fold_y)) for x, y in points if y > fold_y)
-        points = new_points | reflected
+        points = stationay | reflected
         print(f"After fold Y : {len(points)} points")
     elif fold_x:
         # reflecting on X
-        new_points = set((x, y) for x, y in points if x < fold_x)
+        stationay = set((x, y) for x, y in points if x < fold_x)
         reflected = set((x - 2 * (x - fold_x), y) for x, y in points if x > fold_x)
-        points = new_points | reflected
+        points = stationay | reflected
         print(f"After fold X : {len(points)} points")
     return points
 
